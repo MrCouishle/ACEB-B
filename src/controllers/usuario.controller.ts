@@ -58,7 +58,7 @@ export const putRestriccion = async (req: Request, res: Response) => {
       { $set: { restricciones: restricciones } }
     );
     if (!DATA.modifiedCount) msg_("01", "", res);
-    else msg_("01", "modificado", res);
+    else msg_("10", "modificado", res);
   } catch (error) {
     res.json({ msg: error });
   }
