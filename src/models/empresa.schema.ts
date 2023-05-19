@@ -5,8 +5,12 @@ interface empresa {
   tipo_empresa: string;
   nit: string;
   direccion: string;
+  latitud: number;
+  longitud: number;
   capacidad_total: number;
   capacidad_actual: number;
+  sucursal_principal: string;
+  ruta_opcion: string;
 }
 
 const EMPRESA_SCHEMA = new Schema<empresa>({
@@ -26,6 +30,12 @@ const EMPRESA_SCHEMA = new Schema<empresa>({
     type: String,
     required: true,
   },
+  latitud: {
+    type:  Number,
+  },
+  longitud: {
+    type: Number,
+  },
   capacidad_total: {
     type: Number,
     required: true,
@@ -34,6 +44,14 @@ const EMPRESA_SCHEMA = new Schema<empresa>({
     type: Number,
     required: true,
   },
+  sucursal_principal: {
+    type: String,
+    required: true,
+  },
+  ruta_opcion: {
+    type: String,
+    required: true,
+  }
 });
 
 EMPRESA_SCHEMA.index({nombre_empresa:1}, {unique: true});

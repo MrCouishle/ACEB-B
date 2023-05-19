@@ -64,11 +64,11 @@ const USUARIO_SCHEMA = new Schema<usuario>(
   { timestamps: true }
 );
 
-// USUARIO_SCHEMA.pre("save", function (next) {
-//   bcrypt.hash(this.contrasena, 10, (err, hash) => {
-//     err ? next(new Error("F")) : (this.contrasena = hash), next();
-//   });
-// });
+USUARIO_SCHEMA.pre("save", function (next) {
+  bcrypt.hash(this.contrasena, 10, (err, hash) => {
+    err ? next(new Error("F")) : (this.contrasena = hash), next();
+  });
+});
 
 USUARIO_SCHEMA.index({ id: 1 }, { unique: true });
 

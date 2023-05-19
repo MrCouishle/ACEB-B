@@ -27,6 +27,8 @@ APP.use(express.json());
 
 //URL-------------------------------------
 APP.use("/api", routes.USUARIO);
+APP.use("/api", routes.EMPRESA);
+APP.use("/api", routes.GRAFICAS);
 
 APP.use((req: Request, res: Response) => res.status(404).send("ERROR path not found."));
 
